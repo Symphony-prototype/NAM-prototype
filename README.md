@@ -4,7 +4,7 @@ Clickable HTML/React prototypes for Case Manager, Neutrals Portal, and Client Po
 
 ## Repository
 
-**GitHub:** [github.com/Symphony-prototype/NAM-prototype](https://github.com/Symphony-prototype/NAM-prototype)
+**GitHub:** [github.com/symphony-prototype/NAM-prototype](https://github.com/symphony-prototype/NAM-prototype)
 
 ## Hosting (HTTPS required for live demos)
 
@@ -16,7 +16,7 @@ If **Settings → Pages** is available and **GitHub Actions** can deploy:
 
 **https://symphony-prototype.github.io/NAM-prototype/index.html**
 
-(GitHub uses a **lowercase** subdomain for `github.io`; the account name is **Symphony-prototype**.)
+(GitHub username: **`symphony-prototype`**.)
 
 If someone opens the repo URL **without** a trailing slash before paths, **`nam-design-system/github-pages-path.js`** redirects so relative links still work.
 
@@ -41,9 +41,9 @@ After you have **any** HTTPS base URL, share **`…/index.html`** (or **`…/`**
 
 The local repo should use:
 
-`origin` → `https://github.com/Symphony-prototype/NAM-prototype.git`
+`origin` → `https://github.com/symphony-prototype/NAM-prototype.git`
 
-Ensure the **`NAM-prototype`** repository exists under the **Symphony-prototype** account and you have push access.
+Ensure the **`NAM-prototype`** repository exists under the **`symphony-prototype`** account and you have push access.
 
 Then from this folder (sign in when prompted, or use SSH):
 
@@ -55,7 +55,7 @@ git push -u origin main
 To use **SSH** instead of HTTPS:
 
 ```bash
-git remote set-url origin git@github.com:Symphony-prototype/NAM-prototype.git
+git remote set-url origin git@github.com:symphony-prototype/NAM-prototype.git
 git push -u origin main
 ```
 
