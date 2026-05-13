@@ -23,10 +23,19 @@
 
   var BABEL_SRC = 'https://unpkg.com/@babel/standalone@7.29.0/babel.min.js';
 
+  function fileProtocolHubHref() {
+    try {
+      return new URL('../index.html', location.href).href;
+    } catch (e) {
+      return 'http://127.0.0.1:8765/index.html';
+    }
+  }
+
   function showFileMessage() {
     var root = document.getElementById('root');
     if (!root) return;
     var t = manifest.title || 'This prototype';
+    var hubHref = fileProtocolHubHref();
     root.innerHTML =
       '<div style="box-sizing:border-box;font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,sans-serif;padding:28px;max-width:36rem;margin:48px auto;background:#fff8f0;border:1px solid #f5d0a8;border-radius:12px;color:#3d2914">' +
       '<h1 style="margin:0 0 12px;font-size:22px;color:#1a1308">' +
@@ -37,7 +46,9 @@
       '<li style="margin-bottom:10px"><strong>Mac:</strong> double-click <code>serve-prototypes.command</code> in the Prototypes folder (starts Python and opens the hub).</li>' +
       '<li><strong>Any OS:</strong> in Terminal, <code>cd</code> to the Prototypes folder and run:<br>' +
       '<code style="display:inline-block;margin-top:8px;padding:10px 12px;background:#f1f0ec;border-radius:6px;font-size:13px;word-break:break-all">python3 -m http.server 8765 --bind 127.0.0.1</code></li>' +
-      '<li style="margin-top:10px">Open <a href="http://127.0.0.1:8765/index.html" style="color:#0a264d;font-weight:600">http://127.0.0.1:8765/index.html</a>, then choose this portal again.</li>' +
+      '<li style="margin-top:10px">Open the <a href="' +
+      hubHref +
+      '" style="color:#0a264d;font-weight:600">prototype hub</a> over HTTPS (e.g. GitHub Pages) or HTTP from the repo root. For local Python: <a href="http://127.0.0.1:8765/index.html" style="color:#0a264d;font-weight:600">http://127.0.0.1:8765/index.html</a>, then open this portal again.</li>' +
       '</ol>' +
       '<p style="margin:0;font-size:13px;color:#7a6a58">Do not rely on <code>file://</code> for these prototypes.</p>' +
       '</div>';

@@ -4,25 +4,25 @@ Clickable HTML/React prototypes for Case Manager, Neutrals Portal, and Client Po
 
 ## Repository
 
-**GitHub:** [github.com/johansadie-art/NAM](https://github.com/johansadie-art/NAM)
+**GitHub:** [github.com/symphonygroup/NAM-Prototype](https://github.com/symphonygroup/NAM-Prototype)
 
 ## View on GitHub Pages
 
 Published site (after Actions deploy succeeds):
 
-**https://johansadie-art.github.io/NAM/index.html**
+**https://symphonygroup.github.io/NAM-Prototype/index.html**
 
 Start at the hub (`index.html`). These prototypes load JSX via **HTTPS** and `fetch`; use the published URL, not raw `file://` paths.
 
 ## Publish / push updates
 
-The local repo is configured with:
+The local repo should use:
 
-`origin` → `https://github.com/johansadie-art/NAM.git`
+`origin` → `https://github.com/symphonygroup/NAM-Prototype.git`
 
-**First-time:** create the empty **`NAM`** repository under **`johansadie-art`** on GitHub if it does not exist yet.
+Ensure the **`NAM-Prototype`** repository exists under **`symphonygroup`** and you have push access.
 
-Then from this folder on your Mac (sign in when prompted, or use SSH):
+Then from this folder (sign in when prompted, or use SSH):
 
 ```bash
 cd "/path/to/Prototypes"
@@ -32,7 +32,7 @@ git push -u origin main
 To use **SSH** instead of HTTPS:
 
 ```bash
-git remote set-url origin git@github.com:johansadie-art/NAM.git
+git remote set-url origin git@github.com:symphonygroup/NAM-Prototype.git
 git push -u origin main
 ```
 
@@ -40,13 +40,13 @@ git push -u origin main
 
 This workspace recommends **GitHub Pull Requests and Issues** (`.vscode/extensions.json`). When Cursor prompts to install **recommended extensions**, accept it—or install manually: extension ID `GitHub.vscode-pull-request-github`.
 
-Sign in via the **Accounts** menu or Command Palette → **GitHub Pull Requests: Sign in**. Then use the **Source Control** view to **Sync / Push**, or the command **Publish Branch** if the remote branch is not on GitHub yet.
+Sign in via the **Accounts** menu or Command Palette → **GitHub Pull Requests: Sign in**. Then use the **Source Control** view to **Sync / Push**.
 
 ### Enable Pages
 
 1. On GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 2. Open the **Actions** tab and confirm **Deploy GitHub Pages** succeeds.
-3. Share **https://johansadie-art.github.io/NAM/index.html**.
+3. Share **https://symphonygroup.github.io/NAM-Prototype/index.html**.
 
 ### Notes
 
