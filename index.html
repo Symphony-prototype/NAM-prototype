@@ -169,13 +169,6 @@
       width: 100%;
       box-shadow: var(--shadow-md);
     }
-    .gate-title {
-      font-family: var(--font-serif);
-      font-size: 22px;
-      font-weight: 700;
-      margin: 0 0 8px;
-      color: var(--fg-1);
-    }
     .gate-hint {
       margin: 0 0 20px;
       font-size: 14px;
@@ -232,11 +225,10 @@
     class="site-gate"
     role="dialog"
     aria-modal="true"
-    aria-labelledby="site-gate-title"
+    aria-labelledby="site-gate-hint"
   >
     <div class="gate-card">
-      <h2 id="site-gate-title" class="gate-title">NAM CMS 2.0 prototypes</h2>
-      <p class="gate-hint">Enter the password to open this hub.</p>
+      <p id="site-gate-hint" class="gate-hint">Enter the password to open this hub.</p>
       <form id="site-gate-form" autocomplete="off">
         <label class="gate-label" for="site-gate-password">Password</label>
         <input
