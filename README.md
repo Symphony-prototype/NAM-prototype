@@ -4,7 +4,7 @@ Clickable HTML/React prototypes for Case Manager, Neutrals Portal, and Client Po
 
 ## Repository
 
-**GitHub:** [github.com/symphonygroup/NAM-Prototype](https://github.com/symphonygroup/NAM-Prototype)
+**GitHub:** [github.com/Symphony-prototype/NAM-prototype](https://github.com/Symphony-prototype/NAM-prototype)
 
 ## Hosting (HTTPS required for live demos)
 
@@ -14,9 +14,11 @@ These prototypes load **React from a CDN** and **`.jsx` via `fetch`**, so viewer
 
 If **Settings → Pages** is available and **GitHub Actions** can deploy:
 
-**https://symphonygroup.github.io/NAM-Prototype/index.html**
+**https://symphony-prototype.github.io/NAM-prototype/index.html**
 
-If someone opens **`…/NAM-Prototype`** without a trailing slash, **`nam-design-system/github-pages-path.js`** redirects so relative links still work.
+(GitHub uses a **lowercase** subdomain for `github.io`; the account name is **Symphony-prototype**.)
+
+If someone opens the repo URL **without** a trailing slash before paths, **`nam-design-system/github-pages-path.js`** redirects so relative links still work.
 
 ### GitHub Enterprise — GitHub Pages disabled
 
@@ -39,9 +41,9 @@ After you have **any** HTTPS base URL, share **`…/index.html`** (or **`…/`**
 
 The local repo should use:
 
-`origin` → `https://github.com/symphonygroup/NAM-Prototype.git`
+`origin` → `https://github.com/Symphony-prototype/NAM-prototype.git`
 
-Ensure the **`NAM-Prototype`** repository exists under **`symphonygroup`** and you have push access.
+Ensure the **`NAM-prototype`** repository exists under the **Symphony-prototype** account and you have push access.
 
 Then from this folder (sign in when prompted, or use SSH):
 
@@ -53,7 +55,7 @@ git push -u origin main
 To use **SSH** instead of HTTPS:
 
 ```bash
-git remote set-url origin git@github.com:symphonygroup/NAM-Prototype.git
+git remote set-url origin git@github.com:Symphony-prototype/NAM-prototype.git
 git push -u origin main
 ```
 
