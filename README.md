@@ -6,15 +6,34 @@ Clickable HTML/React prototypes for Case Manager, Neutrals Portal, and Client Po
 
 **GitHub:** [github.com/symphonygroup/NAM-Prototype](https://github.com/symphonygroup/NAM-Prototype)
 
-## View on GitHub Pages
+## Hosting (HTTPS required for live demos)
 
-Published site (after Actions deploy succeeds):
+These prototypes load **React from a CDN** and **`.jsx` via `fetch`**, so viewers need a real **`https://`** (or **`http://localhost`**) origin — not raw **`file://`**.
+
+### GitHub Pages (when your org allows it)
+
+If **Settings → Pages** is available and **GitHub Actions** can deploy:
 
 **https://symphonygroup.github.io/NAM-Prototype/index.html**
 
-Start at the hub (`index.html`). These prototypes load JSX via **HTTPS** and `fetch`; use the published URL, not raw `file://` paths.
+If someone opens **`…/NAM-Prototype`** without a trailing slash, **`nam-design-system/github-pages-path.js`** redirects so relative links still work.
 
-**URLs:** GitHub Pages serves the hub at **`…/NAM-Prototype/`** or **`…/NAM-Prototype/index.html`**. If someone opens **`…/NAM-Prototype`** without a trailing slash, a small script redirects so relative links to the portals still work.
+### GitHub Enterprise — GitHub Pages disabled
+
+Many **GitHub Enterprise** setups disable **GitHub Pages** org-wide or block the **`pages: write`** permission. In that case the workflow **`.github/workflows/deploy-pages.yml`** may fail in Actions until an admin enables Pages (or you remove that workflow).
+
+**Practical alternatives** (same repo, static files only — no build step):
+
+| Option | Notes |
+|--------|--------|
+| **Ask your org admin** | Sometimes Pages can be turned on for specific repos or allowlisted. |
+| **[Netlify](https://www.netlify.com/)** | Connect the GitHub repo; set **publish directory** to **`.`** (repo root). This repo includes a minimal **`netlify.toml`**. |
+| **[Cloudflare Pages](https://pages.cloudflare.com/)** | Connect repo; build command empty or `exit 0`; output directory **`.`** / root. |
+| **[Azure Static Web Apps](https://learn.microsoft.com/azure/static-web-apps/)** | Fits Microsoft-heavy enterprises; deploy this folder as static content. |
+| **Internal web server** | Copy the repo (or CI artifact) to IIS, nginx, S3+CloudFront, etc. — any HTTPS static host at the **site root** works. |
+| **Local only** | **`serve-prototypes.command`** or `python3 -m http.server …` — fine for desk demos, not for broad sharing. |
+
+After you have **any** HTTPS base URL, share **`…/index.html`** (or **`…/`** if the host maps it to `index.html`).
 
 ## Publish / push updates
 
@@ -44,17 +63,12 @@ This workspace recommends **GitHub Pull Requests and Issues** (`.vscode/extensio
 
 Sign in via the **Accounts** menu or Command Palette → **GitHub Pull Requests: Sign in**. Then use the **Source Control** view to **Sync / Push**.
 
-### Enable Pages
-
-1. On GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-2. Open the **Actions** tab and confirm **Deploy GitHub Pages** succeeds.
-3. Share **https://symphonygroup.github.io/NAM-Prototype/index.html**.
-
 ### Notes
 
 - **`/.nojekyll`** disables Jekyll so static files are served as-is.
-- Shared styles/scripts live in **`nam-design-system/`**; portal HTML references them with **`../nam-design-system/`** so nothing relies on symlinks (compatible with GitHub Pages).
+- Shared styles/scripts live in **`nam-design-system/`**; portal HTML references them with **`../nam-design-system/`** so nothing relies on symlinks (compatible with static hosts).
 - Local preview: run **`serve-prototypes.command`** (Mac) or `python3 -m http.server 8765 --bind 127.0.0.1` from this directory and open `http://127.0.0.1:8765/index.html`.
+- If **Deploy GitHub Pages** always fails, delete or disable **`.github/workflows/deploy-pages.yml`** until Pages is enabled — pushes will still work; only automatic Pages deploy stops.
 
 ## Regenerating `file://` bundles (optional)
 
@@ -64,4 +78,4 @@ If you change `.jsx` sources and want offline `file://` bundles to match, run:
 node scripts/build-all-file-fallbacks.mjs
 ```
 
-GitHub Pages uses the HTTP + Babel path by default; fallbacks are optional for local disk opens.
+Over HTTPS, hosts use the Babel + `fetch` path by default; fallbacks are optional for opening HTML from disk.

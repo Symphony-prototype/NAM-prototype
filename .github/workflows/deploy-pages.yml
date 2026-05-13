@@ -1,4 +1,6 @@
 # Publish static prototypes to GitHub Pages (HTTPS required for Babel/JSX loaders).
+# If your GitHub Enterprise org disables Pages or blocks the `pages` permission,
+# this workflow will fail — use Netlify/Cloudflare Pages/etc. (see README) or remove this file.
 name: Deploy GitHub Pages
 
 on:

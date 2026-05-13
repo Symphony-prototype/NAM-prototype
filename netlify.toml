@@ -1,0 +1,5 @@
+# Optional Netlify deploy (use if GitHub Enterprise disables GitHub Pages)
+# Connect repo in Netlify UI → Site settings → Build: publish directory = "." (root)
+[build]
+  publish = "."
+  command = "echo Static site — no build step"
