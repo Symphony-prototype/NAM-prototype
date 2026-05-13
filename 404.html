@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="./nam-design-system/github-pages-path.js"></script>
+  <link rel="stylesheet" href="./nam-design-system/tokens.css" />
+  <title>NAM prototypes — page not found</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg-1);
+      color: var(--fg-1);
+      font-family: var(--font-sans);
+      font-size: 15px;
+      line-height: 1.55;
+      padding: 48px 24px;
+    }
+    .box {
+      max-width: 40rem;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid var(--stroke-1);
+      border-radius: var(--radius-xl);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-sm);
+    }
+    h1 {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      margin: 0 0 12px;
+    }
+    p { margin: 0 0 16px; color: var(--fg-2); }
+    a { color: var(--primary); font-weight: 600; }
+    ul { margin: 0; padding-left: 1.2rem; color: var(--fg-2); }
+    li { margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Page not found</h1>
+    <p>This path is not part of the NAM prototype site. Use the hub or one of the entry pages below.</p>
+    <p><a id="hub-link" href="./index.html">Open prototype hub</a></p>
+    <p>Quick links:</p>
+    <ul>
+      <li><a href="./NAM%20CaseManagerPortal/NAM%20Case%20Manager%20Portal.html">Case Manager Portal</a></li>
+      <li><a href="./Neutrals%20Portal%202.0/Neutrals%20Portal.html">Neutrals Portal 2.0</a></li>
+      <li><a href="./NAM%20Client%20Portal/index.html">myADR Client Portal</a></li>
+      <li><a href="./discovery-pack.html">Discovery Pack</a></li>
+    </ul>
+  </div>
+  <script>
+    (function () {
+      var parts = location.pathname.split('/').filter(Boolean);
+      if (parts.length >= 1) {
+        var base = '/' + parts[0] + '/index.html';
+        var a = document.getElementById('hub-link');
+        if (a) a.setAttribute('href', base);
+      }
+    })();
+  </script>
+</body>
+</html>

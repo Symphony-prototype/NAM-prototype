@@ -14,6 +14,8 @@ Published site (after Actions deploy succeeds):
 
 Start at the hub (`index.html`). These prototypes load JSX via **HTTPS** and `fetch`; use the published URL, not raw `file://` paths.
 
+**URLs:** GitHub Pages serves the hub at **`…/NAM-Prototype/`** or **`…/NAM-Prototype/index.html`**. If someone opens **`…/NAM-Prototype`** without a trailing slash, a small script redirects so relative links to the portals still work.
+
 ## Publish / push updates
 
 The local repo should use:
