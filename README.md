@@ -39,24 +39,35 @@ After you have **any** HTTPS base URL, share **`…/index.html`** (or **`…/`**
 
 ## Publish / push updates
 
-The local repo should use:
+The local repo uses **SSH** with a **dedicated host alias** so Git does not use your default `github.com` key (which may belong to another GitHub user):
 
-`origin` → `https://github.com/symphony-prototype/NAM-prototype.git`
+`origin` → `git@github-symphony:symphony-prototype/NAM-prototype.git`
 
-Ensure the **`NAM-prototype`** repository exists under the **`symphony-prototype`** account and you have push access.
+On this Mac, **`~/.ssh/config`** defines **`Host github-symphony`** → `github.com` with **`IdentityFile ~/.ssh/id_ed25519_symphony_prototype`**. Add the **public** key to **symphony-prototype** → **GitHub → Settings → SSH and GPG keys** (copy from terminal: `pbcopy < ~/.ssh/id_ed25519_symphony_prototype.pub`), then verify:
 
-Then from this folder (sign in when prompted, or use SSH):
+```bash
+ssh -T git@github-symphony
+```
+
+You should see: *Hi symphony-prototype! …*
+
+Then push:
 
 ```bash
 cd "/path/to/Prototypes"
 git push -u origin main
 ```
 
-To use **SSH** instead of HTTPS:
+To point **`origin`** at this alias again (e.g. after cloning elsewhere):
 
 ```bash
-git remote set-url origin git@github.com:symphony-prototype/NAM-prototype.git
-git push -u origin main
+git remote set-url origin git@github-symphony:symphony-prototype/NAM-prototype.git
+```
+
+**HTTPS instead** (not recommended if another account owns Keychain for `github.com`):
+
+```bash
+git remote set-url origin https://github.com/symphony-prototype/NAM-prototype.git
 ```
 
 ### Cursor / VS Code — GitHub extension
