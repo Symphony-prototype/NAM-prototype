@@ -31,13 +31,25 @@
       font-size: 34px;
       font-weight: 700;
       letter-spacing: -0.02em;
-      margin: 0 0 8px;
+      margin: 0 0 14px;
       color: var(--fg-1);
     }
     .lede {
+      margin: 0 0 36px;
+      max-width: 62ch;
+    }
+    .lede-kicker {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--fg-1);
+      margin: 0 0 10px;
+      letter-spacing: -0.01em;
+    }
+    .lede-body {
+      margin: 0;
       color: var(--fg-2);
-      margin: 0 0 40px;
-      max-width: 52ch;
+      font-size: 15px;
+      line-height: 1.55;
     }
     .grid {
       display: grid;
@@ -130,7 +142,11 @@
 <body>
   <div class="wrap">
     <h1>NAM CMS 2.0 prototypes</h1>
-    <p class="lede">Open these over <strong>HTTPS</strong> from any static host (e.g. Netlify, Cloudflare Pages, or GitHub Pages if your org allows it) or use <strong>http://127.0.0.1</strong> when running locally — not <code>file://</code>. Safari blocks Babel from loading local <code>.jsx</code> from disk. Locally: double-click <code>serve-prototypes.command</code>, then use the links below.</p>
+
+    <div class="lede" role="note">
+      <p class="lede-kicker">Prototype — for demonstration only</p>
+      <p class="lede-body">This prototype is an early-stage design artefact intended to illustrate concepts and facilitate discussion. It has not been tested with users and does not reflect validated design decisions, final functionality, or product specifications. All content, flows, and visuals are subject to change pending user research, stakeholder input, and further iteration.</p>
+    </div>
 
     <div class="grid">
       <a class="card-link" href="./NAM%20CaseManagerPortal/NAM%20Case%20Manager%20Portal.html">
